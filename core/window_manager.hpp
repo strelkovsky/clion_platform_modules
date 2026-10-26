@@ -17,5 +17,6 @@ namespace core
 
     private:
         std::unique_ptr<base::Window> _window;
+        std::unique_ptr<base::WindowEvents> _window_events;
     };
 }

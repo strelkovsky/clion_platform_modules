@@ -8,6 +8,8 @@ namespace core
     {
         _window = factory->create_window();
         _window->create({.name = "Hello World", .width = 640, .height = 480});
+
+        _window_events = factory->create_window_events();
     }
 
     auto WindowManager::release() const -> void
@@ -18,7 +20,8 @@ namespace core
     auto WindowManager::update() const -> void
     {
         glfwSwapBuffers(std::any_cast<GLFWwindow*>(_window->handle()));
-        glfwPollEvents();
+
+        _window_events->update();
     }
 
     auto WindowManager::window() const -> base::Window*
