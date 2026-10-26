@@ -8,14 +8,6 @@ namespace backends::glfw
 
         _handle = glfwCreateWindow(configuration.width, configuration.height, configuration.name.data(), nullptr, nullptr);
 
-        glfwSetWindowUserPointer(_handle, this);
-
-        glfwSetWindowCloseCallback(_handle, [](GLFWwindow* window_handle)
-        {
-            const auto window = static_cast<core::base::Window*>(glfwGetWindowUserPointer(window_handle));
-            window->is_closing = true;
-        });
-
         glfwMakeContextCurrent(_handle);
     }
 
