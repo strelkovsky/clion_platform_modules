@@ -14,6 +14,7 @@ namespace core
         auto update() const -> void;
 
         auto window() const -> base::Window*;
+        auto window_events() const -> base::WindowEvents*;
 
     private:
         std::unique_ptr<base::Window> _window;

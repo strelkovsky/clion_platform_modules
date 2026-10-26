@@ -10,6 +10,7 @@ namespace core
         _window->create({.name = "Hello World", .width = 640, .height = 480});
 
         _window_events = factory->create_window_events();
+        _window_events->init(_window.get());
     }
 
     auto WindowManager::release() const -> void
@@ -27,6 +28,11 @@ namespace core
     auto WindowManager::window() const -> base::Window*
     {
         return _window.get();
+    }
+
+    auto WindowManager::window_events() const -> base::WindowEvents *
+    {
+        return _window_events.get();
     }
 }
 

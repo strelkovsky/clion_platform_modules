@@ -15,7 +15,5 @@ namespace core::base
         virtual auto handle() -> std::any = 0;
 
         virtual ~Window() = default;
-
-        bool is_closing { }; // TODO to be removed - tests
     };
 }
