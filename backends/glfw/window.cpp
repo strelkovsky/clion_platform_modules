@@ -2,11 +2,11 @@
 
 namespace backends::glfw
 {
-    auto Window::create(std::string_view title, int32_t width, int32_t height) -> void
+    auto Window::create(const core::window::configuration& configuration) -> void
     {
         glfwInit();
 
-        _handle = glfwCreateWindow(width, height, title.data(), nullptr, nullptr);
+        _handle = glfwCreateWindow(configuration.width, configuration.height, configuration.name.data(), nullptr, nullptr);
 
         glfwSetWindowUserPointer(_handle, this);
 
@@ -24,12 +24,6 @@ namespace backends::glfw
         glfwDestroyWindow(_handle);
 
         glfwTerminate();
-    }
-
-    auto Window::update() -> void
-    {
-        glfwSwapBuffers(_handle);
-        glfwPollEvents();
     }
 
     auto Window::handle() -> std::any
