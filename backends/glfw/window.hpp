@@ -6,7 +6,7 @@
 
 namespace backends::glfw
 {
-    class Window : public core::base::Window
+    class Window final : public core::base::Window
     {
     public:
         auto create(const core::window::configuration& configuration) -> void override;
