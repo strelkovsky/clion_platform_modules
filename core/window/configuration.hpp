@@ -10,5 +10,7 @@ namespace core::window
 
         int32_t width;
         int32_t height;
+
+        int32_t samples;
     };
 }
